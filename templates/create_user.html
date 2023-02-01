@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h2>Create User</h2>
+{% endblock %}
+
+{% block content %}
+{% if created %}
+    <p><strong>Success!</strong> Try logging in from the login page.</p>
+{% else %}
+    <div class="container">
+        <h2>Create a user:</h2>
+        <br>
+        <form action="/create_user" method="POST">
+            <input type="text" placeholder="Username" name=username required="required">
+            <input type="password" placeholder="Password" name=password required="required">
+            <input type="password" placeholder="Repeat Password" name=rep_password required="required">
+            <input type="text" placeholder="Age" name="age">
+            <input class="btn btn-default" type="submit" value="create_user">
+        </form>
+        {% if error %}
+        <p class="error"><strong>Error:</strong> Username already exists</p>
+        {% endif %}
+        {% if typo %}
+        <p class="error"><strong>Error:</strong> Try typing your password again</p>
+        {% endif %}
+    </div>
+{% endif %}
+{% endblock %}

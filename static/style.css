@@ -1,0 +1,64 @@
+* {
+    text-align: center;
+    font-family: 'Playfair Display';
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+}
+
+a {
+    text-decoration: none;
+}
+
+a li {
+    display: block;
+    width: 18vw;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none !important;
+}
+
+/* Change the link color to #111 (black) on hover */
+a li:hover {
+    background-color: #111;
+}
+
+table, td, th{
+    padding: 15px;
+    border: 0.1px solid;
+    border-collapse: collapse;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+th {
+    font-weight: 100;
+    font-size: larger;
+}
+img {
+    height: 80px;
+}
+.topbar{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.pages{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}

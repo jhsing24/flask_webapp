@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h2>Create Message</h2>
+{% endblock %}
+
+{% block content %}
+{% if created %}
+<p><strong>Success!</strong> You can view your message from the home page.</p>
+{% endif %}
+<div class="container">
+    <h2>Write a message:</h2>
+    <br>
+    <form action="/create_message" method="POST">
+        <input type="text" placeholder="Write your message..." name=message required="required">
+        <input class="btn btn-default" type="submit" value="create_message">
+    </form>
+    {% if typo %}
+    <p class="error"><strong>Error:</strong> Something went wrong. Try again</p>
+    {% endif %}
+</div>
+{% endblock %}

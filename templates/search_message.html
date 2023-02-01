@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>WEBPAGE: search message</title>
+{% endblock %}
+
+
+{% block content %}
+
+{% if default %}
+<h1>Search for a message</h1>
+<form action=/search_message method=POST>
+<table>
+    <tr><td>search: </td><td><input class="textfield" type=text name=search></td></tr>
+</table>
+<input type=submit value='search'>
+</form>
+{% else %}
+<h1>Messages that match your search:</h1>
+<table>
+    <tr><th></th><th>Username (age)</th><th>Message</th><th>Created at</th><th>Options</th></tr>
+    {% for message in messages %}
+    <tr>
+        <td><img src={{message['profile_picture']}}></td>
+        <td>{{message['username']}}</td>
+        <td>{{message['message']}}</td>
+        <td>{{message['created_at']}}</td>
+        <td>
+            {%if username == message.username %}
+            <a class="delete-message" href= "/delete_message/{{message.id}}">delete </a>
+            <a class="delete-message" href= "/edit_message/{{message.id}}"> edit </a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<div class="pages">{% if page-1>0 %}<a href={{ url_for('root', page=page-1)}}> << Previous Page</a>{% endif %}<a href={{ url_for('root', page=page+1)}}>Next Page >> </a></div>
+
+<br>
+</div>
+{% endif %}
+
+
+{% endblock %}

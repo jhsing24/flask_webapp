@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>{{username}}'s Profile</title>
+{% endblock %}
+
+
+{% block content %}
+<h2>{{username}}'s messages: </h2>
+<div class="table">
+    <table>
+        <tr><th>Message</th><th>Created At</th><th>Options</th></tr>
+        {% for message in messages %}
+        <tr>
+            <td>{{message['message']}}</td>
+            <td>{{message['created_at']}}</td>
+            <td><a class="delete-message" href= "/delete_message/{{message.id}}">Delete</a>   <a class="delete-message" href= "/edit_message/{{message.id}}">Edit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="pages">{% if page-1>0 %}<a href={{ url_for('user', page=page-1)}}> << Previous Page</a>{% endif %}<a href={{ url_for('user', page=page+1)}}>Next Page >> </a></div>
+<br>
+<br>
+{% endblock %}

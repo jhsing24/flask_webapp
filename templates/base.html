@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Twitter Clone</title>
+        <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <div class="topbar">
+            <img src="/static/logo.png">
+            <h1>Twitter Clone</h1>
+        </div>
+        <ul>
+            <a href="/"><li>Home</li></a>
+            {% if loggedin %}
+            <a href="/user"><li>Profile Page</li></a>
+            <a href="/create_message"><li>Create Message</li></a>
+            <a href="/search_message"><li>Search Message</li></a>
+            <a href="/logout"><li>Logout</li></a>
+            {% else %}
+            <a href="/login"><li>Login</li></a>
+            <a href="/create_user"><li>Create User</li></a>
+            {% endif %}
+        </ul>
+        <main>
+            {% block title %}
+            {% endblock %}
+            {% block content %}
+            {% endblock %}
+        </main>
+    </body>
+</html>
